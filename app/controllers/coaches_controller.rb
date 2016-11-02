@@ -15,4 +15,14 @@ class CoachesController < ApplicationController
     end
   end
 
+  post '/signup' do 
+    if params.values[0].values.include?("") || params.values[1].values.include?("") 
+      redirect 'signup'
+    else
+      @coach = Coach.create(params[:coach])
+      @team = Team.create(params[:team])
+      @team.coach = @coach
+    end
+  end
+
 end

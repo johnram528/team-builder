@@ -8,4 +8,10 @@ class TeamsController < ApplicationController
     @team = Team.find(params[:id]) 
     erb :'/teams/team_show'
   end
+
+  get '/teams/:id/edit' do
+    @team = Team.find(params[:id]) 
+    erb :'/teams/team_edit'
+  end
+
 end

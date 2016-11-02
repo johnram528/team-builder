@@ -1,5 +1,5 @@
 class TeamsController < ApplicationController
-    get '/teams' do 
+    get '/team' do 
       if !logged_in?
         redirect '/login'
       else

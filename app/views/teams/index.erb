@@ -1,1 +1,5 @@
-hello
+<h2>All Teams</h2>
+<%@teams.each do |team|%>
+  <h3><%="#{team.city} - #{team.name}"%></h3>
+  <h4><%="Coach: #{team.coach} - Field: #{team.field} - Mascot: #{team.mascot}"%></h4><br>
+  <%end%>

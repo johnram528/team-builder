@@ -1,4 +1,4 @@
 class Player < ActiveRecord::Base
   belongs_to :team
-  has_one :coach, through: :team
+  delegate :coach, to: :team
 end

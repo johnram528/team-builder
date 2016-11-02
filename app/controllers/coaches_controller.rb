@@ -22,7 +22,7 @@ class CoachesController < ApplicationController
       @coach = Coach.create(params[:coach])
       @team = Team.create(params[:team])
       @team.coach = @coach
-      redirect "/team/#{@team.id}/edit"
+      redirect "/teams/#{@team.id}/edit"
     end
   end
 

@@ -7,6 +7,17 @@ class CoachesController < ApplicationController
     end
   end
 
+  post '/login' do
+    coach = Coach.find_by(user_name: params[:user_name])
+    if coach && coach.authenticate(params[:password])
+      session[:user_id] = coach.id
+      redirect "/teams/#{coach.team_id}"
+    else
+      redirect '/login'
+    end
+  end 
+
+
   get '/signup' do 
     if !logged_in?
       erb :'/coaches/new'

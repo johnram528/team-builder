@@ -9,7 +9,7 @@ class CoachesController < ApplicationController
 
   get '/signup' do 
     if !logged_in?
-      erb :'/coaches/signup'
+      erb :'/coaches/new'
     else
       redirect '/'
     end

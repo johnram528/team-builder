@@ -4,6 +4,22 @@ class TeamsController < ApplicationController
       erb :'/teams/index'
   end
 
+  get '/teams/build' do
+    if !logged_in?
+      redirect '/login'
+    else
+      erb :'/teams/build_roster'
+    end
+  end
+
+  post '/teams/build' do
+    params[:player].each do |player|
+      Player.create(player)
+    end
+    @team = Team.find(session[:user_id])
+    redirect "teams/#{@team.id}"
+  end
+
   get '/teams/:id' do
     @team = Team.find(params[:id]) 
     erb :'/teams/team_show'
@@ -20,6 +36,6 @@ class TeamsController < ApplicationController
     end
   end
 
-  get '/teams/build' do
+
 
 end

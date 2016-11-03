@@ -4,7 +4,7 @@ class TeamsController < ApplicationController
       erb :'/teams/index'
   end
 
-  get '/teams/build' do
+  get '/teams/:id/build' do
     if !logged_in?
       redirect '/login'
     else
@@ -12,11 +12,13 @@ class TeamsController < ApplicationController
     end
   end
 
-  post '/teams/build' do
+  post '/teams/:id/build' do
+    @team = Team.find(params[:id])
     params[:player].each do |player|
-      Player.create(player)
+     new_player = Player.create(player)
+     new_player.team_id = @team.id
     end
-    @team = Team.find(session[:user_id])
+    
     redirect "teams/#{@team.id}"
   end
 

@@ -34,7 +34,7 @@ class CoachesController < ApplicationController
       @team = Team.create(params[:team])
       @team.coach = @coach
       session[:user_id] = @coach.id
-      redirect '/players/new'
+      redirect '/players/build_roster'
     end
   end
 

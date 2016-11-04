@@ -2,14 +2,11 @@
   <h3><%="Coach: #{@team.coach.name} - Field: #{@team.field} - Mascot: #{@team.mascot}"%></h3>
   <h3>Roster</h3>
   <h4>Starters</h4>
-  <%Player.all.each do |player|%>
-  <%if player.depth == 1%>
+  <%@team.starters.each do |player|%>
     <%="#{player.position} - #{player.name}"%><br>
-  <%end%>
   <%end%>
   <h4>Bench</h4>
-  <%Player.all.each do |player|%>
-  <%if player.depth == 2%>
+  <%@team.bench.each do |player|%>
     <%="#{player.position} - #{player.name}"%><br>
   <%end%>
-  <%end%>
+  

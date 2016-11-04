@@ -40,6 +40,18 @@ class TeamsController < ApplicationController
     end
   end
 
+  patch '/teams/:id' do
+    @team = Team.find(params[:id])
+    @team.update(params[:team])
+    params[:player].each do |player|
+     edited = Player.find(player[:id])
+     edited.update(player)
+     edited.save
+    end
+    redirect "/teams/#{@team.id}"
+  end
+
+
 
 
 end

@@ -1,5 +1,14 @@
 <h2>All Teams</h2>
 <%@teams.each do |team|%>
-  <h3><%="#{team.city} - #{team.name}"%></h3>
-  <h4><%="Coach: #{team.coach} - Field: #{team.field} - Mascot: #{team.mascot}"%></h4><br>
+    <h2><%="#{team.city} - #{team.name}"%></h2>
+  <h3><%="Coach: #{team.coach.name} - Field: #{team.field} - Mascot: #{team.mascot}"%></h3>
+  <h3>Roster</h3>
+  <h4>Starters</h4>
+  <%team.starters.each do |player|%>
+    <%="#{player.position} - #{player.name}"%><br>
   <%end%>
+  <h4>Bench</h4>
+  <%team.bench.each do |player|%>
+    <%="#{player.position} - #{player.name}"%><br>
+  <%end%>
+<%end%>

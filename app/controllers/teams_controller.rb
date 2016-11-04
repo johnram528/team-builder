@@ -5,6 +5,7 @@ class TeamsController < ApplicationController
   end
 
   get '/teams/:id/build' do
+    @team = Team.find(params[:id])
     if !logged_in?
       redirect '/login'
     else
@@ -19,7 +20,7 @@ class TeamsController < ApplicationController
      new_player.team_id = @team.id
     end
     
-    redirect "teams/#{@team.id}"
+    redirect "/teams/#{@team.id}"
   end
 
   get '/teams/:id' do

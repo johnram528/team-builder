@@ -18,6 +18,7 @@ class TeamsController < ApplicationController
     params[:player].each do |player|
      new_player = Player.create(player)
      new_player.team_id = @team.id
+     new_player.save
     end
     
     redirect "/teams/#{@team.id}"

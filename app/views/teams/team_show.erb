@@ -1,12 +1,13 @@
-  <h2><%="#{@team.city} - #{@team.name}"%></h2>
-  <h3><%="Coach: #{@team.coach.name} - Field: #{@team.field} - Mascot: #{@team.mascot}"%></h3>
-  <h3>Roster</h3>
-  <h4>Starters</h4>
-  <%@team.starters.each do |player|%>
-    <%="#{player.position} - #{player.name}"%><br>
-  <%end%>
-  <h4>Bench</h4>
-  <%@team.bench.each do |player|%>
-    <%="#{player.position} - #{player.name}"%><br>
-  <%end%>
-  
+   <div class="container-fluid">
+    <h4><%="#{@team.city} - #{@team.name}"%></h4>
+    <h4><%="Coach: #{@team.coach.name} - Field: #{@team.field} - Mascot: #{@team.mascot}"%></h4>
+    <h4>Roster</h4>
+    <h5>Starters</h5>
+    <%@team.starters.each do |player|%>
+      <%="#{player.position} - #{player.name}"%><br>
+    <%end%>
+    <h5>Bench</h5>
+    <%@team.bench.each do |player|%>
+      <%="#{player.position} - #{player.name}"%><br>
+    <%end%>
+   </div> 

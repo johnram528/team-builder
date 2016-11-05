@@ -1,14 +1,15 @@
+<div class="container-fluid">
 <form method="POST" action="/teams/<%="#{@team.id}"%>">
 <input type="hidden" name="_method" value="patch">
-<h2>City:<input type="text" name="team[city]" value="<%=@team.city%>">   - Team Name:<input type="text" name="team[name]" value="<%=@team.name%>"></h3></h2>
-<h3><%="Coach: #{@team.coach.name}"%> - Field:<input type="text" name="team[field]" value="<%=@team.field%>">   - Mascot:<input type="text" name="team[mascot]" value="<%=@team.mascot%>"></h3>
-<h1>Edit Roster</h1>
-<h2>Starters</h2>
+<h4>City:<input type="text" name="team[city]" value="<%=@team.city%>">   - Team Name:<input type="text" name="team[name]" value="<%=@team.name%>"></h4>
+<h4><%="Coach: #{@team.coach.name}"%> - Field:<input type="text" name="team[field]" value="<%=@team.field%>">   - Mascot:<input type="text" name="team[mascot]" value="<%=@team.mascot%>"></h4>
+<h3>Edit Roster</h3>
+<h4>Starters</h4>
 <table>
   <tr>
     <th>Position</th>
-    <th>Name</th>
-    <th>Age</th>
+    <th style="text-align:center">Name</th>
+    <th align="center">Age</th>
   </tr>
   <%@team.starters.each do |player|%>
   <tr>
@@ -21,11 +22,11 @@
   </tr>
   <%end%>
   </table>
-<h2>Bench</h2>
+<h4>Bench</h4>
 <table>
   <tr>
     <th>Position</th>
-    <th>Name</th>
+    <th style="text-align:center">Name</th>
     <th>Age</th>
   </tr>
     <%@team.bench.each do |player|%>
@@ -41,3 +42,4 @@
   </table><br>
   <input type="submit" value="Submit">
 </form>
+</div>

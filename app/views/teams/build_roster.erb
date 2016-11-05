@@ -1,161 +1,163 @@
-<h1>Build Roster</h1>
-<h2>Starters</h2>
-<form method="POST" action="/teams/<%="#{@team.id}"%>/build">
-<table>
-  <tr>
-    <th>Position</th>
-    <th>Name</th>
-    <th>Age</th>
-  </tr>
-  <tr>
-    <td>C</td>
-    <td><input type="text" name="player[][name]"></td>
-    <td><input type="text" name="player[][age]" size="3"></td>
-    <td><input type="hidden" name="player[][depth]" value="1"></td>
-    <td><input type="hidden" name="player[][position]" value="C"></td>
-  </tr>
-  <tr>
-    <td>1B</td>
-    <td><input type="text" name="player[][name]"></td>
-    <td><input type="text" name="player[][age]" size="3"></td>
-    <td><input type="hidden" name="player[][depth]" value="1"></td>
-    <td><input type="hidden" name="player[][position]" value="1B"></td>
+<div class="container-fluid">  
+  <h3>Build Roster</h3>
+  <h4>Starters</h4>
+  <form method="POST" action="/teams/<%="#{@team.id}"%>/build">
+  <table>
+    <tr>
+      <th>Position</th>
+      <th style="text-align:center">Name</th>
+      <th>Age</th>
+    </tr>
+    <tr>
+      <td>C</td>
+      <td><input type="text" name="player[][name]"></td>
+      <td><input type="text" name="player[][age]" size="3"></td>
+      <td><input type="hidden" name="player[][depth]" value="1"></td>
+      <td><input type="hidden" name="player[][position]" value="C"></td>
+    </tr>
+    <tr>
+      <td>1B</td>
+      <td><input type="text" name="player[][name]"></td>
+      <td><input type="text" name="player[][age]" size="3"></td>
+      <td><input type="hidden" name="player[][depth]" value="1"></td>
+      <td><input type="hidden" name="player[][position]" value="1B"></td>
 
-  </tr>
-  <tr>
-    <td>2B</td>
-    <td><input type="text" name="player[][name]"></td>
-    <td><input type="text" name="player[][age]" size="3"></td>
-    <td><input type="hidden" name="player[][depth]" value="1"></td>
-    <td><input type="hidden" name="player[][position]" value="2B"></td>
-  </tr>
-  <tr>
-    <td>3B</td>
-    <td><input type="text" name="player[][name]"></td>
-    <td><input type="text" name="player[][age]" size="3"></td>
-    <td><input type="hidden" name="player[][depth]" value="1"></td>
-    <td><input type="hidden" name="player[][position]" value="3B"></td>
-  </tr>
-  <tr>
-    <td>SS</td>
-    <td><input type="text" name="player[][name]"></td>
-    <td><input type="text" name="player[][age]" size="3"></td>
-    <td><input type="hidden" name="player[][depth]" value="1"></td>
-    <td><input type="hidden" name="player[][position]" value="SS"></td>
-  </tr>
-  <tr>
-    <td>CF</td>
-    <td><input type="text" name="player[][name]"></td>
-    <td><input type="text" name="player[][age]" size="3"></td>
-    <td><input type="hidden" name="player[][depth]" value="1"></td>
-    <td><input type="hidden" name="player[][position]" value="CF"></td>
-  </tr>
-  <tr>
-    <td>LF</td>
-    <td><input type="text" name="player[][name]"></td>
-    <td><input type="text" name="player[][age]" size="3"></td>
-    <td><input type="hidden" name="player[][position]" value="LF"></td>
-    <td><input type="hidden" name="player[][depth]" value="1"></td>
-  </tr>
-  <tr>
-    <td>RF</td>
-    <td><input type="text" name="player[][name]"></td>
-    <td><input type="text" name="player[][age]" size="3"></td>
-    <td><input type="hidden" name="player[][position]" value="RF"></td>
-    <td><input type="hidden" name="player[][depth]" value="1"></td>
-  </tr>
-  <tr>
-    <td>P</td>
-    <td><input type="text" name="player[][name]"></td>
-    <td><input type="text" name="player[][age]" size="3"></td>
-    <td><input type="hidden" name="player[][position]" value="P"></td>
-    <td><input type="hidden" name="player[][depth]" value="1"></td>
-  </tr>
-  <tr>
-    <td>P</td>
-    <td><input type="text" name="player[][name]"></td>
-    <td><input type="text" name="player[][age]" size="3"></td>
-    <td><input type="hidden" name="player[][position]" value="P"></td>
-    <td><input type="hidden" name="player[][depth]" value="1"></td>
-  </tr>
-  <tr>
-    <td>P</td>
-    <td><input type="text" name="player[][name]"></td>
-    <td><input type="text" name="player[][age]" size="3"></td>
-    <td><input type="hidden" name="player[][position]" value="P"></td>
-    <td><input type="hidden" name="player[][depth]" value="1"></td>
-  </tr>
-</table>
-<h2>Bench</h2>
-<table>
-  <tr>
-    <th>Position</th>
-    <th>Name</th>
-    <th>Age</th>
-  </tr>
-  <tr>
-    <td>C</td>
-    <td><input type="text" name="player[][name]"></td>
-    <td><input type="text" name="player[][age]" size="3"></td>
-    <td><input type="hidden" name="player[][position]" value="C"></td>
-    <td><input type="hidden" name="player[][depth]" value="2"></td>
-  </tr>
-  <tr>
-    <td>1B</td>
-    <td><input type="text" name="player[][name]"></td>
-    <td><input type="text" name="player[][age]" size="3"></td>
-    <td><input type="hidden" name="player[][position]" value="1B"></td>
-    <td><input type="hidden" name="player[][depth]" value="2"></td>
-  </tr>
-  <tr>
-    <td>2B</td>
-    <td><input type="text" name="player[][name]"></td>
-    <td><input type="text" name="player[][age]" size="3"></td>
-    <td><input type="hidden" name="player[][position]" value="2B"></td>
-    <td><input type="hidden" name="player[][depth]" value="2"></td>
-  </tr>
-  <tr>
-    <td>3B</td>
-    <td><input type="text" name="player[][name]"></td>
-    <td><input type="text" name="player[][age]" size="3"></td>
-    <td><input type="hidden" name="player[][position]" value="3B"></td>
-    <td><input type="hidden" name="player[][depth]" value="2"></td>
-  </tr>
-  <tr>
-    <td>SS</td>
-    <td><input type="text" name="player[][name]"></td>
-    <td><input type="text" name="player[][age]" size="3"></td>
-    <td><input type="hidden" name="player[][position]" value="SS"></td>
-    <td><input type="hidden" name="player[][depth]" value="2"></td>
-  </tr>
-  <tr>
-    <td>CF</td>
-    <td><input type="text" name="player[][name]"></td>
-    <td><input type="text" name="player[][age]" size="3"></td>
-    <td><input type="hidden" name="player[][position]" value="CF"></td>
-    <td><input type="hidden" name="player[][depth]" value="2"></td>
-  </tr>
-  <tr>
-    <td>LF</td>
-    <td><input type="text" name="player[][name]"></td>
-    <td><input type="text" name="player[][age]" size="3"></td>
-    <td><input type="hidden" name="player[][position]" value="LF"></td>
-    <td><input type="hidden" name="player[][depth]" value="2"></td>
-  </tr>
-  <tr>
-    <td>RF</td>
-    <td><input type="text" name="player[][name]"></td>
-    <td><input type="text" name="player[][age]" size="3"></td>
-    <td><input type="hidden" name="player[][position]" value="RF"></td>
-    <td><input type="hidden" name="player[][depth]" value="2"></td>
-  </tr>
-  <tr>
-    <td>P</td>
-    <td><input type="text" name="player[][name]"></td>
-    <td><input type="text" name="player[][age]" size="3"></td>
-    <td><input type="hidden" name="player[][position]" value="P"></td>
-    <td><input type="hidden" name="player[][depth]" value="2"></td>
-  </tr>
-  </table><br>
-  <input type="submit" name="Submit">
-</form>
+    </tr>
+    <tr>
+      <td>2B</td>
+      <td><input type="text" name="player[][name]"></td>
+      <td><input type="text" name="player[][age]" size="3"></td>
+      <td><input type="hidden" name="player[][depth]" value="1"></td>
+      <td><input type="hidden" name="player[][position]" value="2B"></td>
+    </tr>
+    <tr>
+      <td>3B</td>
+      <td><input type="text" name="player[][name]"></td>
+      <td><input type="text" name="player[][age]" size="3"></td>
+      <td><input type="hidden" name="player[][depth]" value="1"></td>
+      <td><input type="hidden" name="player[][position]" value="3B"></td>
+    </tr>
+    <tr>
+      <td>SS</td>
+      <td><input type="text" name="player[][name]"></td>
+      <td><input type="text" name="player[][age]" size="3"></td>
+      <td><input type="hidden" name="player[][depth]" value="1"></td>
+      <td><input type="hidden" name="player[][position]" value="SS"></td>
+    </tr>
+    <tr>
+      <td>CF</td>
+      <td><input type="text" name="player[][name]"></td>
+      <td><input type="text" name="player[][age]" size="3"></td>
+      <td><input type="hidden" name="player[][depth]" value="1"></td>
+      <td><input type="hidden" name="player[][position]" value="CF"></td>
+    </tr>
+    <tr>
+      <td>LF</td>
+      <td><input type="text" name="player[][name]"></td>
+      <td><input type="text" name="player[][age]" size="3"></td>
+      <td><input type="hidden" name="player[][position]" value="LF"></td>
+      <td><input type="hidden" name="player[][depth]" value="1"></td>
+    </tr>
+    <tr>
+      <td>RF</td>
+      <td><input type="text" name="player[][name]"></td>
+      <td><input type="text" name="player[][age]" size="3"></td>
+      <td><input type="hidden" name="player[][position]" value="RF"></td>
+      <td><input type="hidden" name="player[][depth]" value="1"></td>
+    </tr>
+    <tr>
+      <td>P</td>
+      <td><input type="text" name="player[][name]"></td>
+      <td><input type="text" name="player[][age]" size="3"></td>
+      <td><input type="hidden" name="player[][position]" value="P"></td>
+      <td><input type="hidden" name="player[][depth]" value="1"></td>
+    </tr>
+    <tr>
+      <td>P</td>
+      <td><input type="text" name="player[][name]"></td>
+      <td><input type="text" name="player[][age]" size="3"></td>
+      <td><input type="hidden" name="player[][position]" value="P"></td>
+      <td><input type="hidden" name="player[][depth]" value="1"></td>
+    </tr>
+    <tr>
+      <td>P</td>
+      <td><input type="text" name="player[][name]"></td>
+      <td><input type="text" name="player[][age]" size="3"></td>
+      <td><input type="hidden" name="player[][position]" value="P"></td>
+      <td><input type="hidden" name="player[][depth]" value="1"></td>
+    </tr>
+  </table>
+  <h4>Bench</h4>
+  <table>
+    <tr>
+      <th>Position</th>
+      <th style="text-align:center">Name</th>
+      <th>Age</th>
+    </tr>
+    <tr>
+      <td>C</td>
+      <td><input type="text" name="player[][name]"></td>
+      <td><input type="text" name="player[][age]" size="3"></td>
+      <td><input type="hidden" name="player[][position]" value="C"></td>
+      <td><input type="hidden" name="player[][depth]" value="2"></td>
+    </tr>
+    <tr>
+      <td>1B</td>
+      <td><input type="text" name="player[][name]"></td>
+      <td><input type="text" name="player[][age]" size="3"></td>
+      <td><input type="hidden" name="player[][position]" value="1B"></td>
+      <td><input type="hidden" name="player[][depth]" value="2"></td>
+    </tr>
+    <tr>
+      <td>2B</td>
+      <td><input type="text" name="player[][name]"></td>
+      <td><input type="text" name="player[][age]" size="3"></td>
+      <td><input type="hidden" name="player[][position]" value="2B"></td>
+      <td><input type="hidden" name="player[][depth]" value="2"></td>
+    </tr>
+    <tr>
+      <td>3B</td>
+      <td><input type="text" name="player[][name]"></td>
+      <td><input type="text" name="player[][age]" size="3"></td>
+      <td><input type="hidden" name="player[][position]" value="3B"></td>
+      <td><input type="hidden" name="player[][depth]" value="2"></td>
+    </tr>
+    <tr>
+      <td>SS</td>
+      <td><input type="text" name="player[][name]"></td>
+      <td><input type="text" name="player[][age]" size="3"></td>
+      <td><input type="hidden" name="player[][position]" value="SS"></td>
+      <td><input type="hidden" name="player[][depth]" value="2"></td>
+    </tr>
+    <tr>
+      <td>CF</td>
+      <td><input type="text" name="player[][name]"></td>
+      <td><input type="text" name="player[][age]" size="3"></td>
+      <td><input type="hidden" name="player[][position]" value="CF"></td>
+      <td><input type="hidden" name="player[][depth]" value="2"></td>
+    </tr>
+    <tr>
+      <td>LF</td>
+      <td><input type="text" name="player[][name]"></td>
+      <td><input type="text" name="player[][age]" size="3"></td>
+      <td><input type="hidden" name="player[][position]" value="LF"></td>
+      <td><input type="hidden" name="player[][depth]" value="2"></td>
+    </tr>
+    <tr>
+      <td>RF</td>
+      <td><input type="text" name="player[][name]"></td>
+      <td><input type="text" name="player[][age]" size="3"></td>
+      <td><input type="hidden" name="player[][position]" value="RF"></td>
+      <td><input type="hidden" name="player[][depth]" value="2"></td>
+    </tr>
+    <tr>
+      <td>P</td>
+      <td><input type="text" name="player[][name]"></td>
+      <td><input type="text" name="player[][age]" size="3"></td>
+      <td><input type="hidden" name="player[][position]" value="P"></td>
+      <td><input type="hidden" name="player[][depth]" value="2"></td>
+    </tr>
+    </table><br>
+    <input type="submit" name="Submit">
+  </form>
+</div>

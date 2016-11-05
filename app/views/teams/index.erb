@@ -1,6 +1,6 @@
 <div class="container-fluid">
 <%@teams.each do |team|%>
-    <h4><%="#{team.city} - #{team.name}"%></h4>
+  <h4><a href="/teams/<%=team.id%>"><%="#{team.city} - #{team.name}"%></a></h4>
   <h4><%="Coach: #{team.coach.name} - Field: #{team.field} - Mascot: #{team.mascot}"%></h4>
   <h4>Roster</h4>
   <h5>Starters</h5>
@@ -13,3 +13,4 @@
   <%end%>
 <%end%>
 </div>
+

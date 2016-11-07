@@ -1,7 +1,7 @@
 <div class="container-fluid">  
   <h3>Build Roster</h3>
   <h4>Starters</h4>
-  <form method="POST" action="/teams/<%="#{@team.id}"%>/build">
+  <form method="POST" action="/teams/<%="#{current_user.team_id}"%>/build">
   <table>
     <tr>
       <th>Position</th>

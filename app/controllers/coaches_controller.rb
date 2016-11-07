@@ -8,13 +8,17 @@ class CoachesController < ApplicationController
   end
 
   post '/login' do
-    coach = Coach.find_by(user_name: params[:user_name])
-    if coach && coach.authenticate(params[:password])
-      session[:user_id] = coach.id
-      redirect "/teams/#{coach.team_id}"
-    else
-      flash[:message] = "Login attempt failed. Please try again."
-      redirect '/login'
+      if !logged_in?
+        coach = Coach.find_by(user_name: params[:user_name])
+        if coach && coach.authenticate(params[:password])
+          session[:user_id] = coach.id
+          redirect "/teams/#{coach.team_id}"
+        else
+          flash[:message] = "Login attempt failed. Please try again."
+          redirect '/login'
+        end
+      else
+      redirect "/teams/#{current_user.team_id}"
     end
   end 
 
@@ -28,6 +32,7 @@ class CoachesController < ApplicationController
   end
 
   post '/signup' do 
+    if !logged_in?
       @coach = Coach.new(params[:coach])
       @team = Team.new(params[:team])
       if !@coach.save || !@team.save
@@ -36,6 +41,9 @@ class CoachesController < ApplicationController
       else
         session[:user_id] = @coach.id
         redirect "/teams/#{@team.id}/build"
+      end
+    else
+      redirect "/teams/#{current_user.team_id}"
     end
   end
 

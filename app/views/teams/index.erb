@@ -3,14 +3,46 @@
   <h4><a href="/teams/<%=team.id%>"><%="#{team.city} - #{team.name}"%></a></h4>
   <h4><%="Coach: #{team.coach.name} - Field: #{team.field} - Mascot: #{team.mascot}"%></h4>
   <h4>Roster</h4>
-  <h5>Starters</h5>
-  <%team.starters.each do |player|%>
-    <%="#{player.position} - #{player.name}"%><br>
-  <%end%>
-  <h5>Bench</h5>
-  <%team.bench.each do |player|%>
-    <%="#{player.position} - #{player.name}"%><br>
-  <%end%><br>
+
+
+      <h5>Starters</h5>
+    <table>
+      <col width="40">
+      <col width="160">
+      <col width="40">
+      <tr>
+        <th>Pos</th>
+        <th>Name</th>
+        <th>Age</th>
+      </tr>
+      <%team.starters.each do |player|%>
+      <tr>
+        <td><%=player.position%></td>
+        <td><%=player.name%></td>
+        <td><%=player.age%></td>
+      <%end%>
+      </tr>
+      </table>
+    <h5>Bench</h5>
+    <table>
+      <col width="40">
+      <col width="160">
+      <col width="40">
+      <%team.bench.each do |player|%>
+      <tr>
+        <td><%=player.position%></td>
+        <td><%=player.name%></td>
+        <td><%=player.age%></td>
+      <%end%>
+      </tr>
+      </table>
+   
+
+
+
+
+
+
   <%end%>
 </div>
 

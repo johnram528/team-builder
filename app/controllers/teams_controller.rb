@@ -16,18 +16,17 @@ class TeamsController < ApplicationController
   end
 
   post '/teams/:id/build' do  
-    @team = Team.find(params[:id])
-    params[:player].each do |player|
-      if player.values.include?("")
-        redirect "/teams/#{@team.id}/build"
-      else 
+    if params["player"].detect {|player| player.values.include?("")}
+      redirect "/teams/#{current_user.team_id}/build"
+    else
+      params[:player].each do |player| 
          new_player = Player.create(player)
-         new_player.team_id = @team.id
+         new_player.team_id = current_user.team_id
          new_player.save
       end
     end
     
-    redirect "/teams/#{@team.id}"
+    redirect "/teams/#{current_user.team_id}"
   end
 
   get '/teams/:id' do

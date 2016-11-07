@@ -46,21 +46,15 @@ class TeamsController < ApplicationController
   end
 
   patch '/teams/:id' do 
-    @team = Team.find(params[:id])
-    @team.update(params[:team])
-    params[:player].each do |player|
-      if player.values.include?("")
-        redirect "/teams/#{@team.id}/edit"
-      else 
+    if params["player"].detect {|player| player.values.include?("")}
+      redirect "/teams/#{current_user.team_id}/edit"
+    else
+      params[:player].each do |player| 
          edited = Player.find(player[:id])
          edited.update(player)
-         edited.save
       end
     end
-    redirect "/teams/#{@team.id}"
+    redirect "/teams/#{current_user.team_id}"
   end
-
-
-
 
 end

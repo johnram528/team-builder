@@ -16,6 +16,7 @@ class TeamsController < ApplicationController
 
   post '/teams/:id/build' do  
     if params[:player].detect {|player| player.values.include?("")}
+      flash[:message] = "Please fill in all fields."
       redirect "/teams/#{current_user.team_id}/build"
     else
       params[:player].each do |player| 
@@ -45,6 +46,7 @@ class TeamsController < ApplicationController
 
   patch '/teams/:id' do 
     if params[:player].detect {|player| player.values.include?("")}
+      flash[:message] = "Please fill in all fields."
       redirect "/teams/#{current_user.team_id}/edit"
     else
       params[:player].each do |player| 

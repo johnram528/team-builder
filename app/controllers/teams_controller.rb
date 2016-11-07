@@ -15,18 +15,21 @@ class TeamsController < ApplicationController
   end
 
   post '/teams/:id/build' do  
-    if params[:player].detect {|player| player.values.include?("")}
-      flash[:message] = "Please fill in all fields."
-      redirect "/teams/#{current_user.team_id}/build"
+    if logged_in?  
+      if params[:player].detect {|player| player.values.include?("")}
+        flash[:message] = "Please fill in all fields."
+        redirect "/teams/#{current_user.team_id}/build"
+      else
+        params[:player].each do |player| 
+           new_player = Player.create(player)
+           new_player.team_id = current_user.team_id
+           new_player.save
+        end
+        redirect "/teams/#{current_user.team_id}"
+      end 
     else
-      params[:player].each do |player| 
-         new_player = Player.create(player)
-         new_player.team_id = current_user.team_id
-         new_player.save
-      end
+      redirect '/login'
     end
-    
-    redirect "/teams/#{current_user.team_id}"
   end
 
   get '/teams/:id' do
@@ -45,16 +48,20 @@ class TeamsController < ApplicationController
   end
 
   patch '/teams/:id' do 
-    if params[:player].detect {|player| player.values.include?("")}
-      flash[:message] = "Please fill in all fields."
-      redirect "/teams/#{current_user.team_id}/edit"
-    else
-      params[:player].each do |player| 
-         edited = Player.find(player[:id])
-         edited.update(player)
+    if logged_in?
+      if params[:player].detect {|player| player.values.include?("")}
+        flash[:message] = "Please fill in all fields."
+        redirect "/teams/#{current_user.team_id}/edit"
+      else
+        params[:player].each do |player| 
+           edited = Player.find(player[:id])
+           edited.update(player)
+        end
+        redirect "/teams/#{current_user.team_id}"
       end
+    else
+    redirect '/login'
     end
-    redirect "/teams/#{current_user.team_id}"
   end
 
 end

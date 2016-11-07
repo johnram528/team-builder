@@ -7,7 +7,7 @@ class TeamsController < ApplicationController
   get '/teams/:id/build' do   
     if !logged_in?
       redirect '/login'
-    elsif params[:id] != current_user.team_id || !current_user.players.empty?
+    elsif params[:id] != current_user.team_id.to_s || !current_user.players.empty?
       redirect '/teams'
     else
       erb :'/teams/build_roster'
@@ -15,7 +15,7 @@ class TeamsController < ApplicationController
   end
 
   post '/teams/:id/build' do  
-    if params["player"].detect {|player| player.values.include?("")}
+    if params[:player].detect {|player| player.values.include?("")}
       redirect "/teams/#{current_user.team_id}/build"
     else
       params[:player].each do |player| 
@@ -36,7 +36,7 @@ class TeamsController < ApplicationController
   get '/teams/:id/edit' do  
     if !logged_in?
       redirect'/login'
-    elsif params[:id] != current_user.team_id
+    elsif params[:id] != current_user.team_id.to_s
       redirect '/teams'
     else
       erb :'/teams/team_edit'
@@ -44,7 +44,7 @@ class TeamsController < ApplicationController
   end
 
   patch '/teams/:id' do 
-    if params["player"].detect {|player| player.values.include?("")}
+    if params[:player].detect {|player| player.values.include?("")}
       redirect "/teams/#{current_user.team_id}/edit"
     else
       params[:player].each do |player| 

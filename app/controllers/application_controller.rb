@@ -21,7 +21,7 @@ class ApplicationController < Sinatra::Base
     end
 
     def current_user
-      Coach.find(session[:user_id])
+      @current_user ||= Coach.find(session[:user_id]) if logged_in?
     end
   end
 

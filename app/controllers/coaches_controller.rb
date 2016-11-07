@@ -13,6 +13,7 @@ class CoachesController < ApplicationController
       session[:user_id] = coach.id
       redirect "/teams/#{coach.team_id}"
     else
+      flash[:message] = "Login attempt failed. Please try again."
       redirect '/login'
     end
   end 
@@ -30,6 +31,7 @@ class CoachesController < ApplicationController
       @coach = Coach.new(params[:coach])
       @team = Team.new(params[:team])
       if !@coach.save || !@team.save
+        flash[:message] = "Please fill in all fields."
         redirect '/signup'
       else
         session[:user_id] = @coach.id

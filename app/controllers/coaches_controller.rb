@@ -27,14 +27,13 @@ class CoachesController < ApplicationController
   end
 
   post '/signup' do 
-    if params.values[0].values.include?("") || params.values[1].values.include?("") 
-      redirect 'signup'
-    else
-      @coach = Coach.create(params[:coach])
-      @team = Team.create(params[:team])
-      @team.coach = @coach
-      session[:user_id] = @coach.id
-      redirect "/teams/#{@team.id}/build"
+      @coach = Coach.new(params[:coach])
+      @team = Team.new(params[:team])
+      if !@coach.save || !@team.save
+        redirect '/signup'
+      else
+        session[:user_id] = @coach.id
+        redirect "/teams/#{@team.id}/build"
     end
   end
 

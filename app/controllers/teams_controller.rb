@@ -4,11 +4,10 @@ class TeamsController < ApplicationController
       erb :'/teams/index'
   end
 
-  get '/teams/:id/build' do 
-    @team = Team.find(params[:id])    
+  get '/teams/:id/build' do   
     if !logged_in?
       redirect '/login'
-    elsif @team.id != current_user.team_id || !current_user.players.empty?
+    elsif params[:id] != current_user.team_id || !current_user.players.empty?
       redirect '/teams'
     else
       erb :'/teams/build_roster'
